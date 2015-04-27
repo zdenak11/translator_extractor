@@ -23,3 +23,7 @@ go to your_project_directory/app
 call: python location_of_extractor/translator_extractor.py
 
 extracted keys will be in your_project_directory/app/lang/*.neon % * means 'front' and modules names
+
+## Example
+
+Example you can find in example.php
