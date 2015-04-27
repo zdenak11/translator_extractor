@@ -1,6 +1,5 @@
-# To change this license header, choose License Headers in Project Properties.
-# To change this template file, choose Tools | Templates
-# and open the template in the editor.
+# translator_extractor.py
+# utility for extracting translation keys in Nette projects with Kdyby/Translator
 
 __author__ = "zdenak11"
 __date__ = "$20.4.2015 18:29:43$"
