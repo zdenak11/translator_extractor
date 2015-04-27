@@ -6,7 +6,6 @@ __author__ = "zdenak11"
 __date__ = "$20.4.2015 18:29:43$"
 
 import os
-import fnmatch
 import yaml
 import re
 import collections # requires Python 2.7 -- see note below if you're using an earlier version
