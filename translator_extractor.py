@@ -34,13 +34,22 @@ def nested_set(dict, keys, value):
 
 def saveDictionary(filename, dict):
     with open(filename, 'w+') as outfile:
-        outfile.write(yaml.dump(dict, default_flow_style=False, default_style='"'))
+        outfile.write(yaml.dump(dict, default_flow_style=False, default_style=''))
         
 def loadDictionary(filename):
     with open(filename, 'r') as inputfile:
         dict = yaml.load(inputfile)
     return dict
 
+def updateDictionaries(modul, newDict):
+    for root, dirnames, filenames in os.walk(os.path.join(baseFolder, 'lang')):
+        for filename in filenames:
+            if filename.endswith('.neon') & filename.startswith(modul):
+                dict = loadDictionary(os.path.join(root, filename))
+                newdict = newDict
+                merge_dict(newdict, dict)
+                saveDictionary(os.path.join(root, filename), newdict)
+   
 def find_between(s, first, last):
     try:
         start = s.index(first) + len(first)
@@ -132,6 +141,9 @@ for root, dirnames, filenames in os.walk(baseFolder):
             os.rename(os.path.join(root, filename + '.tmp'), os.path.join(root, filename))
 
 
+saveDictionary(os.path.join(baseFolder, 'lang','front.neon'), dictionary)
+updateDictionaries('front', dictionary)
+    
 for m in modules:
     if os.path.exists(os.path.join(baseFolder, 'lang', re.sub('\Module$', '.neon', m))):
         modulDictionary = loadDictionary(os.path.join(baseFolder,'lang', re.sub('\Module$', '.neon', m)))
@@ -148,6 +160,5 @@ for m in modules:
                 os.rename(os.path.join(root, filename + '.tmp'), os.path.join(root, filename))
                 
     saveDictionary(os.path.join(baseFolder, 'lang', re.sub('\Module$', '.neon', m)), modulDictionary)            
+    updateDictionaries(m, modulDictionary)
     
-    
-saveDictionary(os.path.join(baseFolder, 'lang','front.neon'), dictionary)
