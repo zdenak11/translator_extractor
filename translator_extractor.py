@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # translator_extractor.py
 # utility for extracting translation keys in Nette projects with Kdyby/Translator
 
@@ -33,7 +34,7 @@ def nested_set(dict, keys, value):
 
 def saveDictionary(filename, dict):
     with open(filename, 'w+') as outfile:
-        outfile.write(yaml.dump(dict, default_flow_style=False, default_style=''))
+        outfile.write(yaml.dump(dict, default_flow_style=False, default_style='', allow_unicode=True))
         
 def loadDictionary(filename):
     with open(filename, 'r') as inputfile:
