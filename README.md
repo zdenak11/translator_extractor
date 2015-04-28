@@ -24,6 +24,8 @@ call: python location_of_extractor/translator_extractor.py
 
 extracted keys will be in your_project_directory/app/lang/*.neon % * means 'front' and modules names
 
+it also add new keys in existing dictionaries
+
 for each file is also generated backup (original_file.bak)
 
 ## Example
