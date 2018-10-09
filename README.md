@@ -1,3 +1,6 @@
+# No more maintanence
+This project started as a test, when I tried to learn python and was discontinued. If anyone wants to continue on this project, please contact me.
+
 # Translator extractor
 Utility for extracting translations in Nette projects with Kdyby/Translator
 
